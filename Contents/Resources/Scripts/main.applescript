@@ -753,9 +753,11 @@ end map_as_list
 
 (*!
 <!--begin locale ja-->
-
+内部のリストの参照を共有したインスタンスを作成します。
+iterator の カウンタはコピーされます。
 <!--begin locale en-->
-Make a new instance which share internal list.
+Make a new instance which share internal list with the original.
+The internal counter for the iterator will be copied.
 <!--end locale-->
 @result XList
 *)
