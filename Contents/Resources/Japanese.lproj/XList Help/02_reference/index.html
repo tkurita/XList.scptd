@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>XList Reference</title>
+		
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<link href="assets/default.css" type="text/css" rel="stylesheet" media="all" />
+		<meta name="keywords" content="XList, AppleScript" />
+		<script type="text/javascript" src="assets/run_helpscript.js"></script>
+		<link href="../" id="HelpBookRoot" />
+	</head>
+
+	<body>
+		<div id="smartheader">
+			<div class="to-root">
+				<!-- InstanceBeginEditable name="to-root" --><a href="../index.html">XList Help</a><!-- InstanceEndEditable -->
+			</div>
+			<div class="edit-script-link">
+				<a onclick="return runHelpScriptWithBundleRoot(this)" href="assets/editScript.scpt">Edit Script</a>
+			</div>
+		</div>
+		<!-- InstanceBeginEditable name="prev-next-item" --><div class="prev-next-item"><a href="../01_synopsis/index.html"><span class="navibar-prev">Synopsis</span></a>|<a href="../03_history/index.html"><span class="navibar-next">History</span></a></div><!-- InstanceEndEditable -->
+		<div id="contents">
+		<h1>XList Reference</h1>
+<ul>
+<li>Version : 1.4.1</li>
+<li>Author : Tetsuro KURITA <a href="mailto:tkurita@mac.com">tkurita@mac.com</a></li>
+</ul>
+<p>リストを iterator, stack, queue などとして扱うスクリプトオブジェクト。</p>
+
+<h2><a id="Constructor_Method" name="Constructor_Method"></a>Constructor Method</h2>
+<h3><a href="pages/make.html">make</a></h3>
+<p>XList オブジェクトのインスタンスを作ります。内容は設定されていません。</p>
+
+<h3><a href="pages/make_with.html">make_with</a></h3>
+<p>与えたリストをもとに XList オブジェクトのインスタンスを作ります。</p>
+
+<h3><a href="pages/make_with_list.html">make_with_list</a></h3>
+<p><a href="pages/make_with.html">make_with</a> と同じです。</p>
+
+<h3><a href="pages/make_with_text.html">make_with_text</a></h3>
+<p>テキストを区切り文字で分割したリストをもとに XList オブジェクトのインスタンスを作ります。</p>
+
+<h2><a id="_Methods_for_Iterator" name="_Methods_for_Iterator"></a> Methods for Iterator</h2>
+<h3><a href="pages/next.html">next</a></h3>
+<p>前回の <a href="pages/next.html">next</a>() で取得した項目の次の要素を取得します。</p>
+
+<h3><a href="pages/has_next.html">has_next</a></h3>
+<p><a href="pages/next.html">next</a>() で次の要素を取得できるかどうか判定します。</p>
+
+<h3><a href="pages/current_item.html">current_item</a></h3>
+<p>直前の <a href="pages/next.html">next</a>() で取得した要素と同じ要素を取得します。</p>
+
+<h3><a href="pages/current_index.html">current_index</a></h3>
+<p>直前の <a href="pages/next.html">next</a>() で取得した要素のインデックス</p>
+
+<h3><a href="pages/decrement_index.html">decrement_index</a></h3>
+<p><a href="pages/next.html">next</a>() で取得するリスト項目の index を一つ巻き戻します。</p>
+
+<h3><a href="pages/increment_index.html">increment_index</a></h3>
+<p><a href="pages/next.html">next</a>() で取得するリスト項目の index を一つ増やします。つまり、一つ項目をスキップさせます。</p>
+
+<h3><a href="pages/reset.html">reset</a></h3>
+<p><a href="pages/next.html">next</a>() で取得するリスト項目をはじめに戻します。</p>
+
+<h2><a id="Stack_and_Quene" name="Stack_and_Quene"></a>Stack and Quene</h2>
+<h3><a href="pages/push.html">push</a></h3>
+<p>リストの最後に要素を付け加えます。</p>
+
+<h3><a href="pages/pop.html">pop</a></h3>
+<p>リストの最後の要素を取得して、リストから削除します。</p>
+
+<h3><a href="pages/unshift.html">unshift</a></h3>
+<p>リストの先頭に要素を付け加えます。</p>
+
+<h3><a href="pages/shift.html">shift</a></h3>
+<p>リストの先頭の要素を取得して、リストから削除します。</p>
+
+<h2><a id="Accessing_List_Items" name="Accessing_List_Items"></a>Accessing List Items</h2>
+<h3><a href="pages/count_items.html">count_items</a></h3>
+<p>要素の数を返します。</p>
+
+<h3><a href="pages/delete_at.html">delete_at</a></h3>
+<p>指定したインデックスの要素を削除します。</p>
+
+<h3><a href="pages/item_at.html">item_at</a></h3>
+<p>指定したインデックスの要素を取得します。インデックスのリストを渡すと複数の項目を取得できます。</p>
+
+<h3><a href="pages/items_in_range.html">items_in_range</a></h3>
+<p>指定したインデックスの範囲の要素を取得します。</p>
+
+<h3><a href="pages/set_item.html">set_item</a></h3>
+<p>指定したインデックスの要素を設定します。</p>
+
+<h3><a href="pages/exchange_items.html">exchange_items</a></h3>
+<p>インデックスで指定した要素を入れ替えます。</p>
+
+<h3><a href="pages/has_item.html">has_item</a></h3>
+<p>オブジェクト an_item を含んでいるかどうか調べます。</p>
+
+<h3><a href="pages/index_of.html">index_of</a></h3>
+<p>オブジェクト an_item のインデックスを取得します。</p>
+
+<h3><a href="pages/all_items.html">all_items</a></h3>
+<p>内包しているリストのコピーを返します。</p>
+
+<h3><a href="pages/list_ref.html">list_ref</a></h3>
+<p>内包しているリストを返します。</p>
+
+<h2><a id="Conversion_to_Text" name="Conversion_to_Text"></a>Conversion to Text</h2>
+<h3><a href="pages/as_xtext_with.html">as_xtext_with</a></h3>
+<p>与えられた区切り文字をつかって要素を文字列として結合します。<a href="help:openbook='XText Help'">XText</a> のインスタンスを返します。</p>
+
+<h3><a href="pages/as_unicode_with.html">as_unicode_with</a></h3>
+<p>与えられた区切り文字をつかって、Unicode text としてすべての要素を結合します。</p>
+
+<h3><a href="pages/as_text_with.html">as_text_with</a></h3>
+<p><a href="pages/as_unicode_with.html">as_unicode_with</a> と同じ。与えられた区切り文字をつかって、Unicode text としてすべての要素を結合します。</p>
+
+<h3><a href="pages/as_string_with.html">as_string_with</a></h3>
+<p>与えられた区切り文字をつかって、 string としてすべての要素を結合します。</p>
+
+<h2><a id="Loop_with_Script_Object" name="Loop_with_Script_Object"></a>Loop with Script Object</h2>
+<h3><a href="pages/each.html">each</a></h3>
+<p>リストの要素を引数にしてスクリプトオブジェクトの do ハンドラを繰り返し実行します。</p>
+
+<h3><a href="pages/map.html">map</a></h3>
+<p>リストのすべての要素を引数にしてスクリプトオブジェクトの do ハンドラを実行します。do ハンドラの返り値を要素とした XList が結果になります。</p>
+
+<h3><a href="pages/map_as_list.html">map_as_list</a></h3>
+<p>リストのすべての要素を引数にしてスクリプトオブジェクトの do ハンドラを実行します。do ハンドラの返り値のリストが結果になります。</p>
+
+		</div>
+	</body>
+
+</html>

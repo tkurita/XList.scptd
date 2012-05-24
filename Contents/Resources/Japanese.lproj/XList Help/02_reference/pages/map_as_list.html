@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>map_as_list</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<link href="../assets/default.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="../assets/handler_page.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="../assets/applescript.css" type="text/css" rel="stylesheet" media="all" />
+		<meta name="keywords" content="map_as_list, XList" />
+		<script type="text/javascript" src="../assets/run_helpscript.js"></script>
+		<link href="../../" id="HelpBookRoot" />
+	</head>
+
+	<body>
+		<div id="smartheader">
+			<div class="to-root">
+			<a href="../index.html">XList Reference</a>
+			</div>
+			<div class="edit-script-link">
+			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
+			</div>
+		</div>
+		<div id="contents">
+		<div class="elementTitle">
+<a id="map_as_list" name="map_as_list">map_as_list</a>
+</div>
+<p class="sourceCode">
+<span class="userDefine">map_as_list</span><span class="normal">(</span><span class="userDefine">a_script</span><span class="normal">)</span>
+<a href="../assets/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
+<img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
+</a></p>
+<p>リストのすべての要素を引数にしてスクリプトオブジェクトの do ハンドラを実行します。do ハンドラの返り値のリストが結果になります。</p>
+
+<p>a_script は引数を一つだけとる do ハンドラを実装していなければなりません。</p>
+<p>do の引数にはリストの要素への参照が渡されます。contents に値を代入することにより、リストの要素を書き換えることができます。</p>
+
+<div class="subHeading">
+Parameters
+</div>
+<ul>
+<li>a_script(script object) :
+ 引数を一つだけとる do ハンドラを持っている必要があります。
+</li>
+</ul>
+<div class="subHeading">
+Result
+</div>
+<p>list</p>
+		</div>
+	</body>
+
+</html>
