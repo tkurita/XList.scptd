@@ -786,7 +786,7 @@ end deep_copy
 内部のリストの参照を共有したインスタンスを作成します。
 iterator の カウンタはリセットされます。
 <!--begin locale en-->
-Make a shallow copy with resetting iterator counter.
+Make a shallow copy with resetting the internal iterator counter.
 <!--end locale-->
 @result XList
 *)
