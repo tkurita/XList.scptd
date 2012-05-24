@@ -767,6 +767,14 @@ on shallow_copy()
 	return x_list
 end shallow_copy
 
+(*!
+<!--begin locale ja-->
+参照しているリストをコピーしたインスタンスを生成します。
+<!--begin locale en-->
+Make a new instance which have copied internal list from the original.
+<!--end locale-->
+@result XList
+*)
 on deep_copy()
 	set x_list to my make_with(all_items())
 	set x_list's _n to my _n
