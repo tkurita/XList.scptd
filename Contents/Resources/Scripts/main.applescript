@@ -783,17 +783,12 @@ end deep_copy
 
 (*!
 <!--begin locale ja-->
-
+内部のリストの参照を共有したインスタンスを作成します。
+iterator の カウンタはリセットされます。
 <!--begin locale en-->
-a_script must have a　do handler which require only argument.
-
-A reference to an item of the list is passed to the do handler. You can change elements of the list by assining a value to contents of the reference.
+Make a shallow copy with resetting iterator counter.
 <!--end locale-->
-@param a_script(script object) :
-<!--begin locale ja--> 引数を一つだけとる do ハンドラを持っている必要があります。
-<!--begin locale en--> must have a do handler which require only argument.
-<!--end locale-->
-@result list
+@result XList
 *)
 on interator()
 	return my make_with(my _contents)
