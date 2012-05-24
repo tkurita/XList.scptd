@@ -750,6 +750,15 @@ on map_as_list(a_script)
 end map_as_list
 
 (*!@group Make a copy of the instance *)
+
+(*!
+<!--begin locale ja-->
+
+<!--begin locale en-->
+Make a new instance which share internal list.
+<!--end locale-->
+@result XList
+*)
 on shallow_copy()
 	set x_list to my make_with(my _contents)
 	set x_list's _n to my _n
