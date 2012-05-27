@@ -9,34 +9,36 @@
       <meta name="keywords" content="XList, AppleScript" />
       <meta http-equiv="content-type" content="text/html;charset=utf-8" />
       <title>Synopsis</title>
-      
       <meta name="description" content="サンプルコードなど。" />
-      
       <!-- #BeginHeadLocked "" -->
         <link href="assets/helpbook-default.css" type="text/css" rel="stylesheet" media="all" />
         <link href="assets/helpbook-navibar.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="assets/AppleScript.css" type="text/css" rel="stylesheet" media="all" />
         <script type="text/javascript" src="assets/navibar-jump.js"></script>
+        <link id="helpviewer-handler-helper" href="assets/helpviewer-handler-helper.scpt" />
         <script type="text/javascript" src="assets/helpviewer-handler-enable.js"></script>
-	      <link href="assets/AppleScript.css" type="text/css" rel="stylesheet" media="all" />
-	      <link id="helpviewer-handler-helper" href="assets/helpviewer-handler-helper.scpt" />
       <!-- #EndHeadLocked -->
       <link id="HelpBookRoot" href="../" />
     </head>
 
     <body>
-      <!-- InstanceBeginEditable name="navi-bar" --><div id="navi-bar"><span class="navibar-item"><a href="../index.html">XList Help</a></span><span class="navibar-item">Synopsis</span><select onchange="navibarJump(this)"><option value="">§</option>
-    <option value="#what">What ?</option>
-    <option value="#sample">Sample</option></select></div>
-<div class="prev-next-item"><a href="../02_reference/index.html"><span class="navibar-next">XList Reference</span></a></div><!-- InstanceEndEditable -->
+      <!-- InstanceBeginEditable name="navi-bar" -->
+        <div id="navi-bar">
+          <span class="navibar-item"><a href="../index.html">XList Help</a></span><span class="navibar-item">Synopsis</span><select onchange="navibarJump(this)">
+            <option value="">§</option>
+            <option value="#what">What ?</option>
+            <option value="#sample">Sample</option>
+          </select></div>
+        <div class="prev-next-item">
+          <a href="../02_reference/index.html"><span class="navibar-next">XList Reference</span></a></div>
+      <!-- InstanceEndEditable -->
       <div id="contents">
         <!-- InstanceBeginEditable name="Body" -->
           <h1>Synopsis</h1>
           <h2><a id="what" name="what"></a>What ?</h2>
-          
           <p>Iterator, Queue, Stack として使えるリストのラッパーオブジェクトを提供する AppleScript のモジュールです。</p>
           <p>AppleScript のリストの欠けている機能の多くを補完します。</p>
           <p>また、AppleScript のリストはリファレンスを経由して要素を参照しないと速度が大きく低下するという性質があります。XList は内部で、常にリファレンスを経由してリストにアクセスする為、常に良好な動作速度が得られます。</p>
-          
           <h2><a id="sample" name="sample"></a>Sample</h2>
           <div class="sourceCode">
             <div>
@@ -155,8 +157,9 @@
               <input type="button" value="edit" onclick="document.location = this.src" src="applescript://com.apple.scripteditor?action=new%26script=property%20XList%20:%20module%0D%0Dboot%20(module%20loader)%20for%20me%0D%0D(*%20Iterator%20*)%0Dset%20an_iterator%20to%20XList%27s%20make_with(%7B%22a%22,%20%22b%22,%20%22c%22%7D)%0D%0Drepeat%20while%20an_iterator%27s%20has_next()%0D%09set%20an_item%20to%20next()%20of%20an_iterator%0D%09log%20an_item%0Dend%20repeat%0D%0D(*%20Queue%20*)%0Dset%20a_queue%20to%20make%20XList%0Da_queue%27s%20unshift(%22a%22)%0Da_queue%27s%20unshift(%22b%22)%0Dlog%20a_queue%27s%20shift()%20--%20result%20:%20%22b%22%0Dlog%20a_queue%27s%20shift()%20--%20result%20:%20%22a%22%0D%0D(*%20Stack%20*)%0Dset%20a_stack%20to%20make%20XList%0Da_queue%27s%20push(%22a%22)%0Da_queue%27s%20push(%22b%22)%0Dlog%20a_queue%27s%20pop()%20--%20result%20:%20%22b%22%0Dlog%20a_queue%27s%20pop()%20--%20result%20:%20%22a%22%0D%0D(*%20Accessing%20list%20elements%20*)%0Dset%20a_list%20to%20XList%27s%20make_with(%7B%22a%22,%20%22b%22,%20%22c%22%7D)%0Dlog%20a_list%27s%20item_counts()%20--%203%0Dlog%20a_list%27s%20item_at(2)%20--%20%22b%22%0Dlog%20a_list%27s%20has_item(%22b%22)%20--true%0Dlog%20a_list%27s%20has_item(%22d%22)%20--false%0Dlog%20a_list%27s%20index_of(%22b%22)%20--%202%0Dlog%20a_list%27s%20index_of(%22d%22)%20--%200%0Dlog%20a_list%27s%20delete_at(2)%20--%20%22b%22%0Dlog%20(set_item%20of%20a_list%20for%20%22e%22%20at%202)%20--%20%22e%22%0Dlog%20a_list%27s%20list_ref()%20--%20%7B%22a%22,%20%22e%22%7D%0D%0D(*%20Conversion%20to%20Text%20*)%0Dlog%20a_list%27s%20as_unicode_with(%22,%20%22)%20--%20%22a,%20e%22%0D%0D(*%20Accessing%20all%20items%20with%20a%20closure%20*)%0Dscript%20scriptA%0D%09on%20do(x)%0D%09%09if%20contents%20of%20x%20is%20%22b%22%20then%0D%09%09%09set%20contents%20of%20x%20to%20%22d%22%20--%20change%20an%20item%20of%20a%20list%0D%09%09end%20if%0D%09%09return%20true%0D%09end%20do%0Dend%20script%0D%0Dan_iterator%27s%20each(scriptA)%0Dlog%20an_iterator%27s%20all_items()%20--%20result%20:%20%7B%22a%22,%20%22d%22,%20%22c%22%7D%0D%0D%0Dscript%20scriptB%0D%09on%20do(x)%0D%09%09return%20x%20%26%20%22a%22%0D%09end%20do%0Dend%20script%0D%0Dlog%20an_iterator%27s%20map_as_list(scriptB)%20--%20result%20:%20%7B%22aa%22,%20%22da%22,%20%22ca%22%7D%0D" /></div>
           </div>
         <!-- InstanceEndEditable --></div>
+      <!-- InstanceBeginEditable name="prev-next-item" --><!-- InstanceEndEditable -->
       <div class="footer">
-        <p>This page was last built on <csobj format="MedDate" h="10" region="0" t="DateTime" w="69">Sat, Apr 21, 2012</csobj> ; <csobj format="LongTime" h="10" region="0" t="DateTime" w="51">10:06:16 AM</csobj> . Thanks for checking it out!</p>
+        <p>This page was last built on <csobj format="MedDate" h="10" region="0" t="DateTime" w="72">Tue, Apr 17, 2012</csobj> ; <csobj format="LongTime" h="10" region="0" t="DateTime" w="45">8:02:49 PM</csobj> . Thanks for checking it out!</p>
       </div>
     </body>
 

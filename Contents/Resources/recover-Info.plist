@@ -5,13 +5,13 @@
 	<key>CFBundleIdentifier</key>
 	<string>Scriptfactory.XList</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.4.1 copyright 2007-2012, Tetsuro KURITA</string>
+	<string>1.5 copyright 2007-2012, Tetsuro KURITA</string>
 	<key>CFBundleVersion</key>
-	<string>1.4.1</string>
+	<string>1.5</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.4.1</string>
+	<string>1.5</string>
 	<key>CFBundleHelpBookFolder</key>
-	<string>XListHelp</string>
+	<string>XList Help</string>
 	<key>CFBundleHelpBookName</key>
 	<string>XList Help</string>
 	<key>NSHumanReadableCopyright</key>
