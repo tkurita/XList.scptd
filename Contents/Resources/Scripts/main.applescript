@@ -1,5 +1,5 @@
 property name : "XList"
-property version : "1.5b"
+property version : "1.5"
 
 property XText : module
 
@@ -9,7 +9,7 @@ XText || help:openbook='XText Help'
 *)
 
 (*!@title XList Reference
-* Version : 1.5b
+* Version : 1.5
 * Author : Tetsuro KURITA ((<tkurita@mac.com>))
 <!--begin locale ja-->
 リストを iterator, stack, queue などとして扱うスクリプトオブジェクト。
@@ -718,8 +718,7 @@ on map(a_script)
 	return make_with_list(a_list)
 end map
 
-(*!
-@abstruct 
+(*!@abstruct
 <!--begin locale ja-->
 リストのすべての要素を引数にしてスクリプトオブジェクトの do ハンドラを実行します。do ハンドラの返り値のリストが結果になります。
 <!--begin locale en-->
@@ -751,7 +750,7 @@ end map_as_list
 
 (*!@group Make a copy of the instance *)
 
-(*!
+(*!@abstruct
 <!--begin locale ja-->
 内部のリストの参照を共有したインスタンスを作成します。
 iterator の カウンタはコピーされます。
@@ -767,7 +766,7 @@ on shallow_copy()
 	return x_list
 end shallow_copy
 
-(*!
+(*!@abstruct
 <!--begin locale ja-->
 参照しているリストをコピーしたインスタンスを生成します。
 <!--begin locale en-->
@@ -781,7 +780,7 @@ on deep_copy()
 	return x_list
 end deep_copy
 
-(*!
+(*!@abstruct
 <!--begin locale ja-->
 内部のリストの参照を共有したインスタンスを作成します。
 iterator の カウンタはリセットされます。

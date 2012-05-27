@@ -15,12 +15,14 @@
 	</head>
 
 	<body>
-		<div id="smartheader">
+		<div id="navi-bar">
+			<div class="edit-script-link">
+			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
+			</div>
+			<div class="left-contents">
 			<div class="to-root">
 			<a href="../index.html">XList Reference</a>
 			</div>
-			<div class="edit-script-link">
-			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
 			</div>
 		</div>
 		<div id="contents">
@@ -33,6 +35,8 @@
 <img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
 <p>check whether <a href="next.html">next</a>() can return a next item or not</p>
+
+
 
 <p>false should be returned, when the last item have been already returned with <a href="next.html">next</a>().</p>
 

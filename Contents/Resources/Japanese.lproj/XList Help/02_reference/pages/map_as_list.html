@@ -15,12 +15,14 @@
 	</head>
 
 	<body>
-		<div id="smartheader">
+		<div id="navi-bar">
+			<div class="edit-script-link">
+			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
+			</div>
+			<div class="left-contents">
 			<div class="to-root">
 			<a href="../index.html">XList Reference</a>
 			</div>
-			<div class="edit-script-link">
-			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
 			</div>
 		</div>
 		<div id="contents">
@@ -33,6 +35,8 @@
 <img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
 <p>リストのすべての要素を引数にしてスクリプトオブジェクトの do ハンドラを実行します。do ハンドラの返り値のリストが結果になります。</p>
+
+
 
 <p>a_script は引数を一つだけとる do ハンドラを実装していなければなりません。</p>
 <p>do の引数にはリストの要素への参照が渡されます。contents に値を代入することにより、リストの要素を書き換えることができます。</p>
