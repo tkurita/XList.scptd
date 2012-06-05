@@ -789,9 +789,9 @@ Make a shallow copy with resetting the internal iterator counter.
 <!--end locale-->
 @result XList
 *)
-on interator()
+on iterator()
 	return my make_with(my _contents)
-end interator
+end iterator
 
 on log
 	tell AppleScript to log (my dump())
