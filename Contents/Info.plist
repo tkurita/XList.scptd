@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleGetInfoString</key>
-	<string>1.5 copyright 2007-2012, Tetsuro KURITA</string>
+	<string>1.6b1 copyright 2007-2012, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>XList Help</string>
 	<key>CFBundleHelpBookName</key>
@@ -11,9 +11,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>Scriptfactory.XList</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.5</string>
+	<string>1.6</string>
 	<key>CFBundleVersion</key>
-	<string>1.5</string>
+	<string>1.6</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>copyright 2007-2012, Tetsuro KURITA</string>
 	<key>WindowState</key>
@@ -27,9 +27,9 @@
 		<key>positionOfDivider</key>
 		<real>440</real>
 		<key>savedFrame</key>
-		<string>602 143 661 674 0 0 1440 878 </string>
+		<string>237 138 661 674 0 0 1440 878 </string>
 		<key>selectedTabView</key>
-		<string>description</string>
+		<string>event log</string>
 	</dict>
 </dict>
 </plist>
