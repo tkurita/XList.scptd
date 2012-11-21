@@ -1,5 +1,5 @@
 property name : "XList"
-property version : "1.5"
+property version : "1.6b1"
 
 property XText : module
 
@@ -9,7 +9,7 @@ XText || help:openbook='XText Help'
 *)
 
 (*!@title XList Reference
-* Version : 1.5
+* Version : 1.6b1
 * Author : Tetsuro KURITA ((<tkurita@mac.com>))
 <!--begin locale ja-->
 リストを iterator, stack, queue などとして扱うスクリプトオブジェクト。
@@ -208,14 +208,13 @@ end increment_index
 
 (*!
 @abstruct
-<!--begin locale ja-->
-((<next>))() で取得するリスト項目をはじめに戻します。
-<!--begin locale en-->
 Make ((<next>))() return items form first.
-<!--end locale-->
+@result
+me
 *)
 on reset()
 	set my _n to 1
+	return me
 end reset
 
 (*!@group Stack and Quene *)
@@ -428,19 +427,27 @@ end items_in_range
 
 (*!
 @abstruct
-<!--begin locale ja-->
-指定したインデックスの要素を設定します。
-<!--begin locale en-->
 set an item at a specified index.
-<!--end locale-->
+@description
+A synonym of ((<set_item_at>)).
 @param an_index(integer) : 
-<!--begin locale ja-->要素のインデックス
-<!--begin locale en-->an index number of the item to set
-<!--end locale-->
+an index number of the item to set
 *)
 on set_item for a_value at an_index
 	set item an_index of my _contents to a_value
 end set_item
+
+(*!
+@abstruct
+set an item at a specified index.
+@description
+A synonym of ((<set_item_at>)).
+@param an_index(integer) : 
+an index number of the item to set
+*)
+on set_item_at(a_value, an_index)
+	set item an_index of my _contents to a_value
+end set_item_at
 
 (*!
 @abstruct
@@ -659,31 +666,18 @@ end as_string_with
 
 (*!
 @abstruct 
-<!--begin locale ja-->
-リストの要素を引数にしてスクリプトオブジェクトの do ハンドラを繰り返し実行します。
-<!--begin locale en-->
-Call do handler of given script object with each item in the XList as an argument.
-<!--end locale-->
+Call do handler of given script object with passing a reference to each item in the XList as an argument.
 @description 
-<!--begin locale ja-->
-a_script は引数を一つだけとる do ハンドラを実装していなければなりません。do ハンドラの返り値は true もしくは false である必要があります。do ハンドラが false を 返すと処理を中止します。
-
-do の引数にはリストの要素への参照が渡されます。contents に値を代入することにより、リストの要素を書き換えることができます。
-<!--begin locale en-->
 a_script must have a　do handler which require only argument. The do handler must return true or false. When the do handler return false, the process is stoped immediately.
 
 A reference to an item of the list is passed to the do handler. You can change elements of the list by assining a value to contents of the reference.
-<!--end locale-->
+
+This method will not works with AppleScriptObjC. Consider to use ((<enumerate>)) method.
 @param
-<!--begin locale ja-->
-a_script(スクリプトオブジェクト) : 引数を一つだけとる do ハンドラを持っている必要があります。 do ハンドラは真偽値を返さなくてはなりません。
-<!--begin locale en-->
 a_script(script object) : must have a do handler which require only argument. The do handler must return boolean.
-<!--end locale-->
 *)
 on each(a_script)
 	repeat with an_item in (a reference to my _contents)
-		--if not (a_script's do(an_item)) then
 		if (a_script's do(an_item) is false) then
 			exit repeat
 		end if
@@ -692,25 +686,40 @@ end each
 
 (*!
 @abstruct 
-<!--begin locale ja-->
-リストのすべての要素を引数にしてスクリプトオブジェクトの do ハンドラを実行します。do ハンドラの返り値を要素とした XList が結果になります。
-<!--begin locale en-->
-Call do handler of given script object with each items in the list as and argument. A XList consisting of the results of do handler is returned.
-<!--end locale-->
+Call do handler of given script object with each item in the XList as an argument.
 @description 
-<!--begin locale ja-->
-a_script は引数を一つだけとる do ハンドラを実装していなければなりません。
+The parameter &quote;a_script&quote; must have a　do handler which require two arguments. 
 
-do の引数にはリストの要素への参照が渡されます。contents に値を代入することにより、リストの要素を書き換えることができます。
-<!--begin locale en-->
-a_script must have a　do handler which require only argument.
+The arguments of the do handler are :
+(1) each item in the target XList.
+(2) the target XList.
 
-A reference to an item of the list is passed to the do handler. You can change elements of the list by assining a value to contents of the reference.
-<!--end locale-->
+The do handler must return true or false. When the do handler return false, the process is stoped immediately.
+
+
+Unlike ((<each>)) method, contents of each item in the XList will be passed to do handler.
+@param
+a_script(script object) : must have a do handler which require only argument. The do handler must return boolean.
+*)
+on enumerate(a_script)
+	reset()
+	repeat while has_next()
+		if a_script's do(next(), me) is false then
+			exit repeat
+		end if
+	end repeat
+end enumerate
+
+(*!
+@abstruct 
+Call do handler of given script object with each items in the list as and argument. A XList consisting of the results of do handler is returned.
+@description 
+A parameter &quote;a_script&quote; must have a　do handler which require only argument.
+
+Each elements in the target XList will be passed to the do handler.
+
 @param a_script(script object) :
-<!--begin locale ja--> 引数を一つだけとる do ハンドラを持っている必要があります。
-<!--begin locale en--> must have a do handler which require only argument.
-<!--end locale-->
+must have a do handler which require only argument.
 @result Instance of XList
 *)
 on map(a_script)
@@ -719,31 +728,21 @@ on map(a_script)
 end map
 
 (*!@abstruct
-<!--begin locale ja-->
-リストのすべての要素を引数にしてスクリプトオブジェクトの do ハンドラを実行します。do ハンドラの返り値のリストが結果になります。
-<!--begin locale en-->
 Call do handler of given script object with each items in the list as and argument. An AppleScript's list of the results of do handler is returned.
-<!--end locale-->
 @description 
-<!--begin locale ja-->
-a_script は引数を一つだけとる do ハンドラを実装していなければなりません。
+A parameter &quote;a_script&quote; must have a　do handler which require only argument.
 
-do の引数にはリストの要素への参照が渡されます。contents に値を代入することにより、リストの要素を書き換えることができます。
-<!--begin locale en-->
-a_script must have a　do handler which require only argument.
+Each elements in the target XList will be passed to the do handler.
 
-A reference to an item of the list is passed to the do handler. You can change elements of the list by assining a value to contents of the reference.
-<!--end locale-->
 @param a_script(script object) :
-<!--begin locale ja--> 引数を一つだけとる do ハンドラを持っている必要があります。
-<!--begin locale en--> must have a do handler which require only argument.
-<!--end locale-->
+must have a do handler which require only argument.
 @result list
 *)
 on map_as_list(a_script)
 	set a_list to {}
-	repeat with an_item in (a reference to my _contents)
-		set end of a_list to (a_script's do(an_item))
+	set an_iter to iterator()
+	repeat while an_iter's has_next()
+		set end of a_list to (a_script's do(an_iter's next()))
 	end repeat
 	return a_list
 end map_as_list
@@ -838,5 +837,4 @@ on run
 		display alert (msg & return & errno)
 	end try
 end run
-
 
