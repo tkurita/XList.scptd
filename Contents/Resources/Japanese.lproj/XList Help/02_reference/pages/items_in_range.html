@@ -17,7 +17,7 @@
 	<body>
 		<div id="navi-bar">
 			<div class="edit-script-link">
-			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
+			<a onclick="return runHelpScriptWithBundleRoot(this)" href="../assets/editScript.scpt">Edit Script</a>
 			</div>
 			<div class="left-contents">
 			<div class="to-root">
@@ -34,23 +34,20 @@
 <a href="../assets/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
 <img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
-<p>指定したインデックスの範囲の要素を取得します。</p>
-
+<p>Obtain items between two indexes.</p>
 <div class="subHeading">
 Parameters
 </div>
 <ul>
 <li>s_index(integer) : 
-最初の要素のインデックス
-</li>
+the first index number</li>
 <li>e_index(integer) : 
-最後の要素のインデックス
-</li>
+the last index number</li>
 </ul>
 <div class="subHeading">
 Result
 </div>
-<p>XList : s_index から e_index までの要素の XList</p>
+<p>XList : An XList instance of elements from s_index to e_index</p>
 		</div>
 	</body>
 

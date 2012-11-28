@@ -99,6 +99,9 @@ Accessing List Items
 <option value="#set_item">
 - set_item
 </option>
+<option value="#set_item_at">
+- set_item_at
+</option>
 <option value="#exchange_items">
 - exchange_items
 </option>
@@ -138,6 +141,9 @@ Loop with Script Object
 <option value="#each">
 - each
 </option>
+<option value="#enumerate">
+- enumerate
+</option>
 <option value="#map">
 - map
 </option>
@@ -163,126 +169,93 @@ Make a copy of the instance
 		<div id="contents">
 		<h1>XList Reference</h1>
 <ul>
-<li>Version : 1.5</li>
+<li>Version : 1.6</li>
 <li>Author : Tetsuro KURITA <a href="mailto:tkurita@mac.com">tkurita@mac.com</a></li>
 </ul>
-<p>リストを iterator, stack, queue などとして扱うスクリプトオブジェクト。</p>
-
+<p>XList provides a wapper object to treat AppleScript's list as iterator, stack and queue.</p>
 <h2 id="Constructor_Method">Constructor Method</h2>
 <h3 id="make"><a href="pages/make.html">make</a></h3>
-<p>XList オブジェクトのインスタンスを作ります。内容は設定されていません。</p>
-
+<p>Meke an instance of empty XList.</p>
 <h3 id="make_with"><a href="pages/make_with.html">make_with</a></h3>
-<p>与えたリストをもとに XList オブジェクトのインスタンスを作ります。</p>
-
+<p>Meke an instance of XList with given an AppleScript's  list object.</p>
 <h3 id="make_with_list"><a href="pages/make_with_list.html">make_with_list</a></h3>
-<p><a href="pages/make_with.html">make_with</a> と同じです。</p>
-
+<p>A synonym of <a href="pages/make_with.html">make_with</a></p>
 <h3 id="make_with_text"><a href="pages/make_with_text.html">make_with_text</a></h3>
-<p>テキストを区切り文字で分割したリストをもとに XList オブジェクトのインスタンスを作ります。</p>
-
+<p>Meke an instance of XList with from a list splitting a text with a delimiter.</p>
 <h2 id="_Methods_for_Iterator"> Methods for Iterator</h2>
 <h3 id="next"><a href="pages/next.html">next</a></h3>
-<p>前回の <a href="pages/next.html">next</a>() で取得した項目の次の要素を取得します。</p>
-
+<p>return an item in the list next to the item obtained by previous <a href="pages/next.html">next</a>()</p>
 <h3 id="has_next"><a href="pages/has_next.html">has_next</a></h3>
-<p><a href="pages/next.html">next</a>() で次の要素を取得できるかどうか判定します。</p>
-
+<p>check whether <a href="pages/next.html">next</a>() can return a next item or not</p>
 <h3 id="current_item"><a href="pages/current_item.html">current_item</a></h3>
-<p>直前の <a href="pages/next.html">next</a>() で取得した要素と同じ要素を取得します。</p>
-
+<p>The item obtained by previous <a href="pages/next.html">next</a>() is returned.</p>
 <h3 id="current_index"><a href="pages/current_index.html">current_index</a></h3>
-<p>直前の <a href="pages/next.html">next</a>() で取得した要素のインデックス</p>
-
+<p>An index number of an item obtained by previous <a href="pages/next.html">next</a>() is returned.</p>
 <h3 id="decrement_index"><a href="pages/decrement_index.html">decrement_index</a></h3>
-<p><a href="pages/next.html">next</a>() で取得するリスト項目の index を一つ巻き戻します。</p>
-
+<p>Decrements the index of the item obtained by <a href="pages/next.html">next</a>(). i.e. same item can be obtained once more.</p>
 <h3 id="increment_index"><a href="pages/increment_index.html">increment_index</a></h3>
-<p><a href="pages/next.html">next</a>() で取得するリスト項目の index を一つ増やします。つまり、一つ項目をスキップさせます。</p>
-
+<p>Increments the index of the item obtained by <a href="pages/next.html">next</a>(). i.e. skip an item.</p>
 <h3 id="reset"><a href="pages/reset.html">reset</a></h3>
-<p><a href="pages/next.html">next</a>() で取得するリスト項目をはじめに戻します。</p>
-
+<p>Make <a href="pages/next.html">next</a>() return items form first.</p>
 <h2 id="Stack_and_Quene">Stack and Quene</h2>
 <h3 id="push"><a href="pages/push.html">push</a></h3>
-<p>リストの最後に要素を付け加えます。</p>
-
+<p>Append an item at the end of the list.</p>
 <h3 id="pop"><a href="pages/pop.html">pop</a></h3>
-<p>リストの最後の要素を取得して、リストから削除します。</p>
-
+<p>Obtain last item in the stored list, and remove the item.</p>
 <h3 id="unshift"><a href="pages/unshift.html">unshift</a></h3>
-<p>リストの先頭に要素を付け加えます。</p>
-
+<p>Append an item at the beginning of the list.</p>
 <h3 id="shift"><a href="pages/shift.html">shift</a></h3>
-<p>リストの先頭の要素を取得して、リストから削除します。</p>
-
+<p>Obtain first item in the list and remove it.</p>
 <h2 id="Accessing_List_Items">Accessing List Items</h2>
 <h3 id="count_items"><a href="pages/count_items.html">count_items</a></h3>
-<p>要素の数を返します。</p>
-
+<p>Return number of elements</p>
 <h3 id="delete_at"><a href="pages/delete_at.html">delete_at</a></h3>
-<p>指定したインデックスの要素を削除します。</p>
-
+<p>Delete an item specified with an index number.</p>
 <h3 id="item_at"><a href="pages/item_at.html">item_at</a></h3>
-<p>指定したインデックスの要素を取得します。インデックスのリストを渡すと複数の項目を取得できます。</p>
-
+<p>Obtain an item specified with an index number. When a list of indexes is passed as an argument, multiple items will be obtained.</p>
 <h3 id="items_in_range"><a href="pages/items_in_range.html">items_in_range</a></h3>
-<p>指定したインデックスの範囲の要素を取得します。</p>
-
+<p>Obtain items between two indexes.</p>
 <h3 id="set_item"><a href="pages/set_item.html">set_item</a></h3>
-<p>指定したインデックスの要素を設定します。</p>
-
+<p>set an item at a specified index.</p>
+<h3 id="set_item_at"><a href="pages/set_item_at.html">set_item_at</a></h3>
+<p>set an item at a specified index.</p>
 <h3 id="exchange_items"><a href="pages/exchange_items.html">exchange_items</a></h3>
-<p>インデックスで指定した要素を入れ替えます。</p>
-
+<p>Exchange items specified with indexes</p>
 <h3 id="has_item"><a href="pages/has_item.html">has_item</a></h3>
-<p>オブジェクト an_item を含んでいるかどうか調べます。</p>
-
+<p>Check whether the object "an_item" is included in the XList instance or not.</p>
 <h3 id="index_of"><a href="pages/index_of.html">index_of</a></h3>
-<p>オブジェクト an_item のインデックスを取得します。</p>
-
+<p>Obtain an index number of the object "an_item" in the XList instance.</p>
 <h3 id="all_items"><a href="pages/all_items.html">all_items</a></h3>
-<p>内包しているリストのコピーを返します。</p>
-
+<p>return a copy of stored list.</p>
 <h3 id="list_ref"><a href="pages/list_ref.html">list_ref</a></h3>
-<p>内包しているリストを返します。</p>
-
+<p>return the stored list.</p>
 <h3 id="add_from_list"><a href="pages/add_from_list.html">add_from_list</a></h3>
-<p>与えられたリストの各要素を XList のインスタンスの末端に追加します。</p>
-
+<p>Add each item contained passed list at end of the reciver's XList instance.</p>
 <h2 id="Conversion_to_Text">Conversion to Text</h2>
 <h3 id="as_xtext_with"><a href="pages/as_xtext_with.html">as_xtext_with</a></h3>
-<p>与えられた区切り文字をつかって要素を文字列として結合します。<a href="help:openbook='XText Help'">XText</a> のインスタンスを返します。</p>
-
+<p>Join every elements with given a delimiters as <a href="help:openbook='XText Help'">XText</a></p>
 <h3 id="as_unicode_with"><a href="pages/as_unicode_with.html">as_unicode_with</a></h3>
-<p>与えられた区切り文字をつかって、Unicode text としてすべての要素を結合します。</p>
-
+<p>Join every elements with given a delimiters as Unicode text</p>
 <h3 id="as_text_with"><a href="pages/as_text_with.html">as_text_with</a></h3>
-<p><a href="pages/as_unicode_with.html">as_unicode_with</a> と同じ。与えられた区切り文字をつかって、Unicode text としてすべての要素を結合します。</p>
-
+<p>A synonym of <a href="pages/as_unicode_with.html">as_unicode_with</a>. Join every elements with given a delimiters as Unicode text.</p>
 <h3 id="as_string_with"><a href="pages/as_string_with.html">as_string_with</a></h3>
-<p>与えられた区切り文字をつかって、 string としてすべての要素を結合します。</p>
-
+<p>Join every elements with given a delimiters as string</p>
 <h2 id="Loop_with_Script_Object">Loop with Script Object</h2>
 <h3 id="each"><a href="pages/each.html">each</a></h3>
-<p>リストの要素を引数にしてスクリプトオブジェクトの do ハンドラを繰り返し実行します。</p>
-
+<p>Call do handler of given script object with passing a reference to each item in the XList as an argument.</p>
+<h3 id="enumerate"><a href="pages/enumerate.html">enumerate</a></h3>
+<p>Call do handler of given script object with each item in the XList as an argument.</p>
 <h3 id="map"><a href="pages/map.html">map</a></h3>
-<p>リストのすべての要素を引数にしてスクリプトオブジェクトの do ハンドラを実行します。do ハンドラの返り値を要素とした XList が結果になります。</p>
-
+<p>Call do handler of given script object with each items in the list as and argument. A XList consisting of the results of do handler is returned.</p>
 <h3 id="map_as_list"><a href="pages/map_as_list.html">map_as_list</a></h3>
-<p>リストのすべての要素を引数にしてスクリプトオブジェクトの do ハンドラを実行します。do ハンドラの返り値のリストが結果になります。</p>
-
+<p>Call do handler of given script object with each items in the list as and argument. An AppleScript's list of the results of do handler is returned.</p>
 <h2 id="Make_a_copy_of_the_instance">Make a copy of the instance</h2>
 <h3 id="shallow_copy"><a href="pages/shallow_copy.html">shallow_copy</a></h3>
-<p>内部のリストの参照を共有したインスタンスを作成します。iterator の カウンタはコピーされます。</p>
-
+<p>Make a new instance which share internal list with the original.The internal counter for the iterator will be copied.</p>
 <h3 id="deep_copy"><a href="pages/deep_copy.html">deep_copy</a></h3>
-<p>参照しているリストをコピーしたインスタンスを生成します。</p>
-
+<p>Make a new instance which have copied internal list from the original.</p>
 <h3 id="iterator"><a href="pages/iterator.html">iterator</a></h3>
-<p>内部のリストの参照を共有したインスタンスを作成します。iterator の カウンタはリセットされます。</p>
-
+<p>Make a shallow copy with resetting the internal iterator counter.</p>
 		</div>
 		<!-- InstanceBeginEditable name="prev-next-item" --><div class="prev-next-item"><a href="../01_synopsis/index.html"><span class="navibar-prev">Synopsis</span></a>|<a href="../03_history/index.html"><span class="navibar-next">History</span></a></div><!-- InstanceEndEditable -->
 	</body>
