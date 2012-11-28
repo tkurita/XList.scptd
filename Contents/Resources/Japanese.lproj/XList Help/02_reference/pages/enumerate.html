@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>enumerate</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<link href="../assets/default.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="../assets/handler_page.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="../assets/applescript.css" type="text/css" rel="stylesheet" media="all" />
+		<meta name="keywords" content="enumerate, XList" />
+		<script type="text/javascript" src="../assets/run_helpscript.js"></script>
+		<link href="../../" id="HelpBookRoot" />
+	</head>
+
+	<body>
+		<div id="navi-bar">
+			<div class="edit-script-link">
+			<a onclick="return runHelpScriptWithBundleRoot(this)" href="../assets/editScript.scpt">Edit Script</a>
+			</div>
+			<div class="left-contents">
+			<div class="to-root">
+			<a href="../index.html">XList Reference</a>
+			</div>
+			</div>
+		</div>
+		<div id="contents">
+		<div class="elementTitle">
+<a id="enumerate" name="enumerate">enumerate</a>
+</div>
+<p class="sourceCode">
+<span class="userDefine">enumerate</span><span class="normal">(</span><span class="userDefine">a_script</span><span class="normal">)</span>
+<a href="../assets/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
+<img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
+</a></p>
+<p>Call do handler of given script object with each item in the XList as an argument.</p>
+
+
+<p>The parameter &quot;a_script&quot; is a script object which must have a do handler.The do handler must have two arguments. </p>
+<pre>
+  on do(an_item, sender)
+    -- do something
+	return true
+  end do
+</pre>
+
+<ul>
+<li>item : an item in the target XList.</li>
+<li>sendr :  the target XList.</li>
+</ul>
+<p>The do handler must return true or false. When the do handler return false, the processing enumerate handler is stoped immediately.</p>
+<p>Calling this method will cause to reset the interator counter of the target.</p>
+<div class="subHeading">
+Parameters
+</div>
+<ul>
+<li>a_script(script object) : must have a do handler which require only argument. The do handler must return boolean.</li>
+</ul>
+		</div>
+	</body>
+
+</html>
