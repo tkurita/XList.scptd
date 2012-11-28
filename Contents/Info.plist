@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleGetInfoString</key>
-	<string>1.6b1 copyright 2007-2012, Tetsuro KURITA</string>
+	<string>1.6 copyright 2007-2012, Tetsuro KURITA</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>XList Help</string>
 	<key>CFBundleHelpBookName</key>
