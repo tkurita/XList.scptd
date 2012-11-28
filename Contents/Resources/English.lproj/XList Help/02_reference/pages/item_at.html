@@ -17,7 +17,7 @@
 	<body>
 		<div id="navi-bar">
 			<div class="edit-script-link">
-			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
+			<a onclick="return runHelpScriptWithBundleRoot(this)" href="../assets/editScript.scpt">Edit Script</a>
 			</div>
 			<div class="left-contents">
 			<div class="to-root">
@@ -35,19 +35,17 @@
 <img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
 <p>Obtain an item specified with an index number. When a list of indexes is passed as an argument, multiple items will be obtained.</p>
-
 <div class="subHeading">
 Parameters
 </div>
 <ul>
 <li>an_index(integer or list of integer) : 
-an index number or a list of indexes of the items to obtain
-</li>
+an index number or a list of indexes of the items to obtain</li>
 </ul>
 <div class="subHeading">
 Result
 </div>
-<p>anything : Return an_index th item. error number -1728 will be rased when an item can not be obtained. </p>
+<p>anything : Return an_index th item. error number -1728 will be rased when an item can not be obtained.</p>
 		</div>
 	</body>
 

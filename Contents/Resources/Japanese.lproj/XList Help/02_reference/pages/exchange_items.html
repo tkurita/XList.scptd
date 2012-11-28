@@ -17,7 +17,7 @@
 	<body>
 		<div id="navi-bar">
 			<div class="edit-script-link">
-			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
+			<a onclick="return runHelpScriptWithBundleRoot(this)" href="../assets/editScript.scpt">Edit Script</a>
 			</div>
 			<div class="left-contents">
 			<div class="to-root">
@@ -34,18 +34,16 @@
 <a href="../assets/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
 <img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
-<p>インデックスで指定した要素を入れ替えます。</p>
-
+<p>Exchange items specified with indexes</p>
 <div class="subHeading">
 Parameters
 </div>
 <ul>
 <li>index1(integer) : 
-入れ替える要素の一つ目のインデックス
+first index of an element to exchange
 </li>
 <li>index2 (integer) : 
-入れ替える要素の二つ目のインデックス
-</li>
+second index of an element to exchange</li>
 </ul>
 		</div>
 	</body>

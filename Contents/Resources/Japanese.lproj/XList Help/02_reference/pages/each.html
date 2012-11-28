@@ -17,7 +17,7 @@
 	<body>
 		<div id="navi-bar">
 			<div class="edit-script-link">
-			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
+			<a onclick="return runHelpScriptWithBundleRoot(this)" href="../assets/editScript.scpt">Edit Script</a>
 			</div>
 			<div class="left-contents">
 			<div class="to-root">
@@ -34,20 +34,15 @@
 <a href="../assets/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
 <img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
-<p>リストの要素を引数にしてスクリプトオブジェクトの do ハンドラを繰り返し実行します。</p>
+<p>Call do handler of given script object with passing a reference to each item in the XList as an argument.</p>
 
 
-
-<p>a_script は引数を一つだけとる do ハンドラを実装していなければなりません。do ハンドラの返り値は true もしくは false である必要があります。do ハンドラが false を 返すと処理を中止します。</p>
-<p>do の引数にはリストの要素への参照が渡されます。contents に値を代入することにより、リストの要素を書き換えることができます。</p>
-
+<p>a_script must have a　do handler which require only argument. The do handler must return true or false. When the do handler return false, the process is stoped immediately.</p>
 <div class="subHeading">
 Parameters
 </div>
 <ul>
-<li>
-a_script(スクリプトオブジェクト) : 引数を一つだけとる do ハンドラを持っている必要があります。 do ハンドラは真偽値を返さなくてはなりません。
-</li>
+<li>a_script(script object) : must have a do handler which require only argument. The do handler must return boolean.</li>
 </ul>
 		</div>
 	</body>

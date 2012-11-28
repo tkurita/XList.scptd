@@ -17,7 +17,7 @@
 	<body>
 		<div id="navi-bar">
 			<div class="edit-script-link">
-			<a onclick="return runHelpScript(this)" href="../assets/editScript.scpt">Edit Script</a>
+			<a onclick="return runHelpScriptWithBundleRoot(this)" href="../assets/editScript.scpt">Edit Script</a>
 			</div>
 			<div class="left-contents">
 			<div class="to-root">
@@ -34,16 +34,13 @@
 <a href="../assets/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
 <img src="../assets/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
-<p><a href="as_unicode_with.html">as_unicode_with</a> と同じ。与えられた区切り文字をつかって、Unicode text としてすべての要素を結合します。</p>
-
+<p>A synonym of <a href="as_unicode_with.html">as_unicode_with</a>. Join every elements with given a delimiters as Unicode text.</p>
 <div class="subHeading">
 Parameters
 </div>
 <ul>
 <li>a_delimiter (string or Unicode text): 
-
-区切り文字
-</li>
+text to be used as a delimiter to join text list</li>
 </ul>
 <div class="subHeading">
 Result
