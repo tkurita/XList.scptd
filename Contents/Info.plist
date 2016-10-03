@@ -9,7 +9,7 @@
 	<key>CFBundleHelpBookName</key>
 	<string>XList Help</string>
 	<key>CFBundleIdentifier</key>
-	<string>Scriptfactory.XList</string>
+	<string>net.script-factory.XList</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.7</string>
 	<key>CFBundleVersion</key>
@@ -19,9 +19,9 @@
 	<key>WindowState</key>
 	<dict>
 		<key>bundleDividerCollapsed</key>
-		<true/>
+		<false/>
 		<key>bundlePositionOfDivider</key>
-		<real>0.0</real>
+		<real>661</real>
 		<key>dividerCollapsed</key>
 		<false/>
 		<key>eventLogLevel</key>
@@ -31,7 +31,7 @@
 		<key>positionOfDivider</key>
 		<real>440</real>
 		<key>savedFrame</key>
-		<string>160 134 661 674 0 0 1440 877 </string>
+		<string>160 134 960 674 0 0 1440 877 </string>
 		<key>selectedTab</key>
 		<string>log</string>
 	</dict>
