@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>XList Reference</title>
+		<meta name="AppleTitle" content="XList Reference" />
+
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<link href="assets/default.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="assets/applescript.css" type="text/css" rel="stylesheet" media="all" />
+		<meta name="keywords" content="XList, AppleScript" />
+		<script type="text/javascript" src="assets-helpbook/run_helpscript.js"></script>
+		<script type="text/javascript" src="assets/navibar-jump.js"></script>
+        <link id="helpviewer-handler-helper" href="assets-helpbook/helpviewer-handler-helper.scpt" />
+        <script type="text/javascript" src="assets-helpbook/helpviewer-handler-enable.js"></script>
+        <link href="./" id="HelpBookRoot" />
+	</head>
+
+	<body>
+		<div id="navi-bar">
+			<div class="edit-script-link">
+				<a onclick="return runHelpScriptWithBundleRoot(this)" href="assets-helpbook/editScript.scpt">Edit Script</a>
+			</div>
+			<div class="left-contents">
+			<div class="to-root">
+				<!-- InstanceBeginEditable name="to-root" --><!-- InstanceEndEditable -->
+			</div>
+			<select onchange="navibarJump(this)">
+<option value="">
+§
+</option>
+<option value="#Example">
+Example
+</option>
+<option value="#Constructor_Method">
+Constructor Method
+</option>
+<option value="#make">
+- make
+</option>
+<option value="#make_with">
+- make_with
+</option>
+<option value="#make_with_list">
+- make_with_list
+</option>
+<option value="#make_with_text">
+- make_with_text
+</option>
+<option value="#_Methods_for_Iterator">
+ Methods for Iterator
+</option>
+<option value="#next">
+- next
+</option>
+<option value="#has_next">
+- has_next
+</option>
+<option value="#current_item">
+- current_item
+</option>
+<option value="#current_index">
+- current_index
+</option>
+<option value="#decrement_index">
+- decrement_index
+</option>
+<option value="#increment_index">
+- increment_index
+</option>
+<option value="#reset">
+- reset
+</option>
+<option value="#Stack_and_Quene">
+Stack and Quene
+</option>
+<option value="#push">
+- push
+</option>
+<option value="#pop">
+- pop
+</option>
+<option value="#unshift">
+- unshift
+</option>
+<option value="#shift">
+- shift
+</option>
+<option value="#Accessing_List_Items">
+Accessing List Items
+</option>
+<option value="#count_items">
+- count_items
+</option>
+<option value="#delete_at">
+- delete_at
+</option>
+<option value="#item_at">
+- item_at
+</option>
+<option value="#items_in_range">
+- items_in_range
+</option>
+<option value="#set_item">
+- set_item
+</option>
+<option value="#set_item_at">
+- set_item_at
+</option>
+<option value="#exchange_items">
+- exchange_items
+</option>
+<option value="#has_item">
+- has_item
+</option>
+<option value="#index_of">
+- index_of
+</option>
+<option value="#all_items">
+- all_items
+</option>
+<option value="#list_ref">
+- list_ref
+</option>
+<option value="#add_from_list">
+- add_from_list
+</option>
+<option value="#Conversion_to_Text">
+Conversion to Text
+</option>
+<option value="#as_xtext_with">
+- as_xtext_with
+</option>
+<option value="#as_unicode_with">
+- as_unicode_with
+</option>
+<option value="#as_text_with">
+- as_text_with
+</option>
+<option value="#as_string_with">
+- as_string_with
+</option>
+<option value="#Loop_with_Script_Object">
+Loop with Script Object
+</option>
+<option value="#each">
+- each
+</option>
+<option value="#enumerate">
+- enumerate
+</option>
+<option value="#map">
+- map
+</option>
+<option value="#map_as_list">
+- map_as_list
+</option>
+<option value="#Make_a_copy_of_the_instance">
+Make a copy of the instance
+</option>
+<option value="#shallow_copy">
+- shallow_copy
+</option>
+<option value="#deep_copy">
+- deep_copy
+</option>
+<option value="#iterator">
+- iterator
+</option>
+</select>
+			</div>
+		</div>
+		<!-- InstanceBeginEditable name="prev-next-item" --><!-- InstanceEndEditable -->
+		<div id="contents">
+		<h1>XList Reference</h1>
+<ul>
+<li>Version : 1.7</li>
+<li>Author : Tetsuro KURITA <a href="mailto:scriptfactory@mac.com">scriptfactory@mac.com</a></li>
+<li>Requirements : OS X 10.9 or later</li>
+<li><a href="http://www.script-factory.net/XModules/XList/en/index.html">Home page</a> || <a href="http://www.script-factory.net/XModules/XList/changelog.html">ChangeLog</a> || <a href="https://github.com/tkurita/XList.scptd">Repository</a> </li>
+</ul>
+<p>XList provides a wrapper object for AppleScript's list data to enable functions of Iterator, Queue, Stack. Many missing feature of AppleScript's list are covered.</p>
+<p>Also XList will contribute pefermance of the script. The AppleScript have a characteristics that fast accessing list items must be thorugh a reference of a list. XList can hide such complications, and give simple codes with best performance.</p>
+<h2 id="Example">Example</h2>
+<div class="sourceCode">
+<div class="scriptButton">
+    <input type="button" value="Open this script" onclick="document.location = this.src" src="applescript://com.apple.scripteditor?action=new&amp;script=use%20XList%20:%20script%20%22XList%22%0D%0D(*%20Iterator%20*)%0Dset%20an_iterator%20to%20XList%27s%20make_with(%7B%22a%22,%20%22b%22,%20%22c%22%7D)%0D%0Drepeat%20while%20an_iterator%27s%20has_next()%0D%09set%20an_item%20to%20next()%20of%20an_iterator%0D%09log%20an_item%0Dend%20repeat%0D%0D(*%20Queue%20*)%0Dset%20a_queue%20to%20make%20XList%0Da_queue%27s%20unshift(%22a%22)%0Da_queue%27s%20unshift(%22b%22)%0Dlog%20a_queue%27s%20shift()%20--%20result%20:%20%22b%22%0Dlog%20a_queue%27s%20shift()%20--%20result%20:%20%22a%22%0D%0D(*%20Stack%20*)%0Dset%20a_stack%20to%20make%20XList%0Da_queue%27s%20push(%22a%22)%0Da_queue%27s%20push(%22b%22)%0Dlog%20a_queue%27s%20pop()%20--%20result%20:%20%22b%22%0Dlog%20a_queue%27s%20pop()%20--%20result%20:%20%22a%22%0D%0D(*%20Accessing%20list%20elements%20*)%0Dset%20a_list%20to%20XList%27s%20make_with(%7B%22a%22,%20%22b%22,%20%22c%22%7D)%0Dlog%20a_list%27s%20item_counts()%20--%203%0Dlog%20a_list%27s%20item_at(2)%20--%20%22b%22%0Dlog%20a_list%27s%20has_item(%22b%22)%20--true%0Dlog%20a_list%27s%20has_item(%22d%22)%20--false%0Dlog%20a_list%27s%20index_of(%22b%22)%20--%202%0Dlog%20a_list%27s%20index_of(%22d%22)%20--%200%0Dlog%20a_list%27s%20delete_at(2)%20--%20%22b%22%0Dlog%20(set_item%20of%20a_list%20for%20%22e%22%20at%202)%20--%20%22e%22%0Dlog%20a_list%27s%20list_ref()%20--%20%7B%22a%22,%20%22e%22%7D%0D%0D(*%20Conversion%20to%20Text%20*)%0Dlog%20a_list%27s%20as_unicode_with(%22,%20%22)%20--%20%22a,%20e%22%0D%0D(*%20Accessing%20all%20items%20with%20a%20closure%20*)%0Dscript%20scriptA%0D%09on%20do(x,%20sender)%0D%09%09if%20x%20is%20%22b%22%20then%0D%09%09%09tell%20sender%0D%09%09%09%09set_item_at(%22d%22,%20current_index())%20--%20change%20an%20item%20of%20a%20list%0D%09%09%09end%20tell%0D%09%09end%20if%0D%09%09return%20true%0D%09end%20do%0Dend%20script%0D%0Dan_iterator%27s%20enumerate(scriptA)%0Dlog%20an_iterator%27s%20all_items()%20--%20result%20:%20%7B%22a%22,%20%22d%22,%20%22c%22%7D%0D%0D%0Dscript%20scriptB%0D%09on%20do(x)%0D%09%09return%20x%20%26%20%22a%22%0D%09end%20do%0Dend%20script%0D%0Dlog%20an_iterator%27s%20map_as_list(scriptB)%20--%20result%20:%20%7B%22aa%22,%20%22da%22,%20%22ca%22%7D" />
+</div><div>
+<span class="langKeyword">use</span> <span class="userDefine">XList</span><span class="normal"> : </span><span class="className">script</span><span class="normal"> &quot;XList&quot;</span>
+</div>
+<br />
+<div>
+<span class="comment">(* Iterator *)</span>
+</div>
+<div>
+<span class="langKeyword">set</span> <span class="userDefine">an_iterator</span> <span class="langKeyword">to</span> <span class="userDefine">XList's</span> <span class="userDefine">make_with</span><span class="normal">({&quot;a&quot;, &quot;b&quot;, &quot;c&quot;})</span>
+</div>
+<br />
+<div>
+<span class="langKeyword">repeat</span> <span class="langKeyword">while</span> <span class="userDefine">an_iterator's</span> <span class="userDefine">has_next</span><span class="normal">()</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="langKeyword">set</span> <span class="userDefine">an_item</span> <span class="langKeyword">to</span> <span class="userDefine">next</span><span class="normal">() </span><span class="langKeyword">of</span> <span class="userDefine">an_iterator</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="commandName">log</span> <span class="userDefine">an_item</span>
+</div>
+<div>
+<span class="langKeyword">end</span> <span class="langKeyword">repeat</span>
+</div>
+<br />
+<div>
+<span class="comment">(* Queue *)</span>
+</div>
+<div>
+<span class="langKeyword">set</span> <span class="userDefine">a_queue</span> <span class="langKeyword">to</span> <span class="commandName">make</span> <span class="userDefine">XList</span>
+</div>
+<div>
+<span class="userDefine">a_queue's</span> <span class="userDefine">unshift</span><span class="normal">(&quot;a&quot;)</span>
+</div>
+<div>
+<span class="userDefine">a_queue's</span> <span class="userDefine">unshift</span><span class="normal">(&quot;b&quot;)</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_queue's</span> <span class="userDefine">shift</span><span class="normal">() </span><span class="comment">-- result : &quot;b&quot;</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_queue's</span> <span class="userDefine">shift</span><span class="normal">() </span><span class="comment">-- result : &quot;a&quot;</span>
+</div>
+<br />
+<div>
+<span class="comment">(* Stack *)</span>
+</div>
+<div>
+<span class="langKeyword">set</span> <span class="userDefine">a_stack</span> <span class="langKeyword">to</span> <span class="commandName">make</span> <span class="userDefine">XList</span>
+</div>
+<div>
+<span class="userDefine">a_queue's</span> <span class="userDefine">push</span><span class="normal">(&quot;a&quot;)</span>
+</div>
+<div>
+<span class="userDefine">a_queue's</span> <span class="userDefine">push</span><span class="normal">(&quot;b&quot;)</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_queue's</span> <span class="userDefine">pop</span><span class="normal">() </span><span class="comment">-- result : &quot;b&quot;</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_queue's</span> <span class="userDefine">pop</span><span class="normal">() </span><span class="comment">-- result : &quot;a&quot;</span>
+</div>
+<br />
+<div>
+<span class="comment">(* Accessing list elements *)</span>
+</div>
+<div>
+<span class="langKeyword">set</span> <span class="userDefine">a_list</span> <span class="langKeyword">to</span> <span class="userDefine">XList's</span> <span class="userDefine">make_with</span><span class="normal">({&quot;a&quot;, &quot;b&quot;, &quot;c&quot;})</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_list's</span> <span class="userDefine">item_counts</span><span class="normal">() </span><span class="comment">-- 3</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_list's</span> <span class="userDefine">item_at</span><span class="normal">(2) </span><span class="comment">-- &quot;b&quot;</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_list's</span> <span class="userDefine">has_item</span><span class="normal">(&quot;b&quot;) </span><span class="comment">--true</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_list's</span> <span class="userDefine">has_item</span><span class="normal">(&quot;d&quot;) </span><span class="comment">--false</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_list's</span> <span class="userDefine">index_of</span><span class="normal">(&quot;b&quot;) </span><span class="comment">-- 2</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_list's</span> <span class="userDefine">index_of</span><span class="normal">(&quot;d&quot;) </span><span class="comment">-- 0</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_list's</span> <span class="userDefine">delete_at</span><span class="normal">(2) </span><span class="comment">-- &quot;b&quot;</span>
+</div>
+<div>
+<span class="commandName">log</span><span class="normal"> (</span><span class="userDefine">set_item</span> <span class="langKeyword">of</span> <span class="userDefine">a_list</span> <span class="appKeyword">for</span><span class="normal"> &quot;e&quot; </span><span class="appKeyword">at</span><span class="normal"> 2) </span><span class="comment">-- &quot;e&quot;</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_list's</span> <span class="userDefine">list_ref</span><span class="normal">() </span><span class="comment">-- {&quot;a&quot;, &quot;e&quot;}</span>
+</div>
+<br />
+<div>
+<span class="comment">(* Conversion to Text *)</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">a_list's</span> <span class="userDefine">as_unicode_with</span><span class="normal">(&quot;, &quot;) </span><span class="comment">-- &quot;a, e&quot;</span>
+</div>
+<br />
+<div>
+<span class="comment">(* Accessing all items with a closure *)</span>
+</div>
+<div>
+<span class="langKeyword">script</span> <span class="userDefine">scriptA</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="langKeyword">on</span> <span class="userDefine">do</span><span class="normal">(</span><span class="userDefine">x</span><span class="normal">, </span><span class="userDefine">sender</span><span class="normal">)</span>
+</div>
+<div style="text-indent:8ex;">
+<span class="langKeyword">if</span> <span class="userDefine">x</span> <span class="langKeyword">is</span><span class="normal"> &quot;b&quot; </span><span class="langKeyword">then</span>
+</div>
+<div style="text-indent:12ex;">
+<span class="langKeyword">tell</span> <span class="userDefine">sender</span>
+</div>
+<div style="text-indent:16ex;">
+<span class="userDefine">set_item_at</span><span class="normal">(&quot;d&quot;, </span><span class="userDefine">current_index</span><span class="normal">()) </span><span class="comment">-- change an item of a list</span>
+</div>
+<div style="text-indent:12ex;">
+<span class="langKeyword">end</span> <span class="langKeyword">tell</span>
+</div>
+<div style="text-indent:8ex;">
+<span class="langKeyword">end</span> <span class="langKeyword">if</span>
+</div>
+<div style="text-indent:8ex;">
+<span class="langKeyword">return</span> <span class="enumeratedValues">true</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="langKeyword">end</span> <span class="userDefine">do</span>
+</div>
+<div>
+<span class="langKeyword">end</span> <span class="langKeyword">script</span>
+</div>
+<br />
+<div>
+<span class="userDefine">an_iterator's</span> <span class="userDefine">enumerate</span><span class="normal">(</span><span class="userDefine">scriptA</span><span class="normal">)</span>
+</div>
+<div>
+<span class="commandName">log</span> <span class="userDefine">an_iterator's</span> <span class="userDefine">all_items</span><span class="normal">() </span><span class="comment">-- result : {&quot;a&quot;, &quot;d&quot;, &quot;c&quot;}</span>
+</div>
+<br /><br />
+<div>
+<span class="langKeyword">script</span> <span class="userDefine">scriptB</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="langKeyword">on</span> <span class="userDefine">do</span><span class="normal">(</span><span class="userDefine">x</span><span class="normal">)</span>
+</div>
+<div style="text-indent:8ex;">
+<span class="langKeyword">return</span> <span class="userDefine">x</span><span class="normal"> &amp; &quot;a&quot;</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="langKeyword">end</span> <span class="userDefine">do</span>
+</div>
+<div>
+<span class="langKeyword">end</span> <span class="langKeyword">script</span>
+</div>
+<br />
+<div>
+<span class="commandName">log</span> <span class="userDefine">an_iterator's</span> <span class="userDefine">map_as_list</span><span class="normal">(</span><span class="userDefine">scriptB</span><span class="normal">) </span><span class="comment">-- result : {&quot;aa&quot;, &quot;da&quot;, &quot;ca&quot;}</span>
+</div>
+</div>
+<h2 id="Constructor_Method">Constructor Method</h2>
+<h3 id="make"><a href="pages/make.html">make</a></h3>
+<p>Meke an instance of empty XList.</p>
+<h3 id="make_with"><a href="pages/make_with.html">make_with</a></h3>
+<p>Meke an instance of XList with given an AppleScript's  list object.</p>
+<h3 id="make_with_list"><a href="pages/make_with_list.html">make_with_list</a></h3>
+<p>A synonym of <a href="pages/make_with.html">make_with</a></p>
+<h3 id="make_with_text"><a href="pages/make_with_text.html">make_with_text</a></h3>
+<p>Meke an instance of XList with from a list splitting a text with a delimiter.</p>
+<h2 id="_Methods_for_Iterator"> Methods for Iterator</h2>
+<h3 id="next"><a href="pages/next.html">next</a></h3>
+<p>return an item in the list next to the item obtained by previous <a href="pages/next.html">next</a>()</p>
+<h3 id="has_next"><a href="pages/has_next.html">has_next</a></h3>
+<p>check whether <a href="pages/next.html">next</a>() can return a next item or not</p>
+<h3 id="current_item"><a href="pages/current_item.html">current_item</a></h3>
+<p>The item obtained by previous <a href="pages/next.html">next</a>() is returned.</p>
+<h3 id="current_index"><a href="pages/current_index.html">current_index</a></h3>
+<p>An index number of an item obtained by previous <a href="pages/next.html">next</a>() is returned.</p>
+<h3 id="decrement_index"><a href="pages/decrement_index.html">decrement_index</a></h3>
+<p>Decrements the index of the item obtained by <a href="pages/next.html">next</a>(). i.e. same item can be obtained once more.</p>
+<h3 id="increment_index"><a href="pages/increment_index.html">increment_index</a></h3>
+<p>Increments the index of the item obtained by <a href="pages/next.html">next</a>(). i.e. skip an item.</p>
+<h3 id="reset"><a href="pages/reset.html">reset</a></h3>
+<p>Make <a href="pages/next.html">next</a>() return items form first.</p>
+<h2 id="Stack_and_Quene">Stack and Quene</h2>
+<h3 id="push"><a href="pages/push.html">push</a></h3>
+<p>Append an item at the end of the list.</p>
+<h3 id="pop"><a href="pages/pop.html">pop</a></h3>
+<p>Obtain last item in the stored list, and remove the item.</p>
+<h3 id="unshift"><a href="pages/unshift.html">unshift</a></h3>
+<p>Append an item at the beginning of the list.</p>
+<h3 id="shift"><a href="pages/shift.html">shift</a></h3>
+<p>Obtain first item in the list and remove it.</p>
+<h2 id="Accessing_List_Items">Accessing List Items</h2>
+<h3 id="count_items"><a href="pages/count_items.html">count_items</a></h3>
+<p>Return number of elements</p>
+<h3 id="delete_at"><a href="pages/delete_at.html">delete_at</a></h3>
+<p>Delete an item specified with an index number.</p>
+<h3 id="item_at"><a href="pages/item_at.html">item_at</a></h3>
+<p>Obtain an item specified with an index number. When a list of indexes is passed as an argument, multiple items will be obtained.</p>
+<h3 id="items_in_range"><a href="pages/items_in_range.html">items_in_range</a></h3>
+<p>Obtain items between two indexes.</p>
+<h3 id="set_item"><a href="pages/set_item.html">set_item</a></h3>
+<p>set an item at a specified index.</p>
+<h3 id="set_item_at"><a href="pages/set_item_at.html">set_item_at</a></h3>
+<p>set an item at a specified index.</p>
+<h3 id="exchange_items"><a href="pages/exchange_items.html">exchange_items</a></h3>
+<p>Exchange items specified with indexes</p>
+<h3 id="has_item"><a href="pages/has_item.html">has_item</a></h3>
+<p>Check whether the object "an_item" is included in the XList instance or not.</p>
+<h3 id="index_of"><a href="pages/index_of.html">index_of</a></h3>
+<p>Obtain an index number of the object &amp;quot;an_item&amp;quot; in the XList instance.</p>
+<h3 id="all_items"><a href="pages/all_items.html">all_items</a></h3>
+<p>return a copy of stored list.</p>
+<h3 id="list_ref"><a href="pages/list_ref.html">list_ref</a></h3>
+<p>return the stored list.</p>
+<h3 id="add_from_list"><a href="pages/add_from_list.html">add_from_list</a></h3>
+<p>Add each item contained passed list at end of the reciver's XList instance.</p>
+<h2 id="Conversion_to_Text">Conversion to Text</h2>
+<h3 id="as_xtext_with"><a href="pages/as_xtext_with.html">as_xtext_with</a></h3>
+<p>Join every elements with given a delimiters as <a href="help:openbook='XText Help'">XText</a></p>
+<h3 id="as_unicode_with"><a href="pages/as_unicode_with.html">as_unicode_with</a></h3>
+<p>Join every elements with given a delimiters as Unicode text</p>
+<h3 id="as_text_with"><a href="pages/as_text_with.html">as_text_with</a></h3>
+<p>A synonym of <a href="pages/as_unicode_with.html">as_unicode_with</a>. Join every elements with given a delimiters as Unicode text.</p>
+<h3 id="as_string_with"><a href="pages/as_string_with.html">as_string_with</a></h3>
+<p>Join every elements with given a delimiters as string</p>
+<h2 id="Loop_with_Script_Object">Loop with Script Object</h2>
+<h3 id="each"><a href="pages/each.html">each</a></h3>
+<p>Call do handler of given script object with passing a reference to each item in the XList as an argument.</p>
+<h3 id="enumerate"><a href="pages/enumerate.html">enumerate</a></h3>
+<p>Call do handler of given script object with each item in the XList as an argument.</p>
+<h3 id="map"><a href="pages/map.html">map</a></h3>
+<p>Call do handler of given script object with passing each element as an argument. A XList consisting of the results of do handler is returned.</p>
+<h3 id="map_as_list"><a href="pages/map_as_list.html">map_as_list</a></h3>
+<p>Call do handler of given script object with passing each element as an argument.An AppleScript's list of the results of do handler is returned.</p>
+<h2 id="Make_a_copy_of_the_instance">Make a copy of the instance</h2>
+<h3 id="shallow_copy"><a href="pages/shallow_copy.html">shallow_copy</a></h3>
+<p>Make a new instance which share internal list with the original.The internal counter for the iterator will be copied.</p>
+<h3 id="deep_copy"><a href="pages/deep_copy.html">deep_copy</a></h3>
+<p>Make a new instance which have copied internal list from the original.</p>
+<h3 id="iterator"><a href="pages/iterator.html">iterator</a></h3>
+<p>Make a shallow copy with resetting the internal iterator counter.</p>
+		</div>
+		<!-- InstanceBeginEditable name="prev-next-item" --><!-- InstanceEndEditable -->
+	</body>
+
+</html>
