@@ -32,19 +32,19 @@
 <a id="each" name="each">each</a>
 </div>
 <p class="sourceCode">
-<span class="userDefine">each</span><span class="normal">(</span><span class="userDefine">a_script</span><span class="normal">)</span>
+<span class="userDefine">each</span><span class="normal">(</span><span class="userDefine">block</span><span class="normal">)</span>
 <a href="../assets-helpbook/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
 <img src="../assets-helpbook/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
-<p>Call do handler of given script object with passing a reference to each item in the XList as an argument.</p>
+<p>Repeat to call do handler of given script object with passing each item in the XList as an argument.</p>
 
 
-<p>a_script must have a　do handler which require only argument. The do handler must return true or false. When the do handler return false, the process is stoped immediately.</p>
+<p>The parameter “block” is a script object which have a do handler accepting only one argument. The do handler must return anything.When the do handler return false, the process is stoped immediately.</p>
 <div class="subHeading">
 Parameters
 </div>
 <ul>
-<li>a_script(script object) : must have a do handler which require only argument. The do handler must return boolean.</li>
+<li>block (script object) : must have a do handler which require only argument. The do handler must return boolean.</li>
 </ul>
 		</div>
 	</body>

@@ -32,21 +32,20 @@
 <a id="map" name="map">map</a>
 </div>
 <p class="sourceCode">
-<span class="userDefine">map</span><span class="normal">(</span><span class="userDefine">a_script</span><span class="normal">)</span>
+<span class="userDefine">map</span><span class="normal">(</span><span class="userDefine">block</span><span class="normal">)</span>
 <a href="../assets-helpbook/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
 <img src="../assets-helpbook/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
-<p>Call do handler of given script object with passing each element as an argument. A XList consisting of the results of do handler is returned.</p>
+<p>Repeat to call do handler of given script object with passing each element as an argument. A XList consisting of the results of do handler is returned.</p>
 
 
-<p>A parameter &quot;a_script&quot; must have a do handler which require only argument.</p>
+<p>A parameter “block” is a script object which have a do handler accpepting only one argument.</p>
 <p>Each element in the target XList will be passed to the do handler.</p>
 <div class="subHeading">
 Parameters
 </div>
 <ul>
-<li>a_script(script object) :
-must have a do handler which require only argument.</li>
+<li>block (script object) : must have a do handler which require only argument.</li>
 </ul>
 <div class="subHeading">
 Result

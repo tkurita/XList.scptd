@@ -32,14 +32,14 @@
 <a id="enumerate" name="enumerate">enumerate</a>
 </div>
 <p class="sourceCode">
-<span class="userDefine">enumerate</span><span class="normal">(</span><span class="userDefine">a_script</span><span class="normal">)</span>
+<span class="userDefine">enumerate</span><span class="normal">(</span><span class="userDefine">block</span><span class="normal">)</span>
 <a href="../assets-helpbook/setClipboard.scpt" onclick="return runHelpScriptWithInnerText(this)">
 <img src="../assets-helpbook/Clipboard24.png" alt="copy to clipboard" align="right" />
 </a></p>
-<p>Call do handler of given script object with each item in the XList as an argument.</p>
+<p>Repeat to call do handler of given script object with each item in the XList as an argument.</p>
 
 
-<p>The parameter &quot;a_script&quot; is a script object which must have a do handler.The do handler must have two arguments. </p>
+<p>The parameter “block” is a script object which must have a do handler.The do handler must accept two arguments. </p>
 <pre>
   on do(an_item, sender)
     -- do something
@@ -57,7 +57,7 @@
 Parameters
 </div>
 <ul>
-<li>a_script(script object) : must have a do handler which require only argument. The do handler must return boolean.</li>
+<li>block (script object) : must have a do handler which require only argument. The do handler must return boolean.</li>
 </ul>
 		</div>
 	</body>
