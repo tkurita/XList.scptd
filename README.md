@@ -9,10 +9,10 @@ XList can hide such complications, and give simple codes with best performance.
 
 ## Usage
 English :
-* http://www.script-factory.net/XModules/XList/en/index.html
+* https://www.script-factory.net/XModules/XList/en/index.html
 
 Japanese :
-* http://www.script-factory.net/XModules/XList/index.html
+* https://www.script-factory.net/XModules/XList/index.html
 
 ## Reqirements
 * OS X 10.9 or later.
