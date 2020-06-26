@@ -17,10 +17,8 @@ Japanese :
 ## Reqirements
 * OS X 10.9 or later.
 * [OpenHelpBook]
-* [XText]
 
 [OpenHelpBook]: https://www.script-factory.net/XModules/OpenHelpBook/en/index.html
-[XText]: https://www.script-factory.net/XModules/XText/en/index.html
 
 ## Licence
 
